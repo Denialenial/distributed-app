@@ -13,7 +13,7 @@ const EmployeePage = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get('http://localhost:5003/api/employees');
+      const response = await axios.get('https://distributed-app-gamma.vercel.app/api/employees');
       setEmployees(response.data);
     } catch (error) {
       console.error('Error fetching employees:', error);
@@ -23,7 +23,7 @@ const EmployeePage = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5003/api/employees', newEmployee);
+      const response = await axios.post('https://distributed-app-gamma.vercel.app/api/employees', newEmployee);
       setEmployees([...employees, response.data]);
       setNewEmployee({ name: '', position: '', department: '', salary: '' });
     } catch (error) {
@@ -33,7 +33,7 @@ const EmployeePage = () => {
 
   const handleRemove = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5003/api/employees/${id}`, {
+      const response = await axios.delete(`https://distributed-app-gamma.vercel.app/api/employees/${id}`, {
         validateStatus: function (status) {
           return status < 500; // Resolve only if the status code is less than 500
         }
@@ -57,7 +57,7 @@ const EmployeePage = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:5003/api/employees/${editingEmployee._id}`, editingEmployee);
+      const response = await axios.put(`https://distributed-app-gamma.vercel.app/api/employees/${editingEmployee._id}`, editingEmployee);
       setEmployees(employees.map(employee => (employee._id === editingEmployee._id ? response.data : employee)));
       setEditingEmployee(null);
       console.log('Employee updated:', response.data);

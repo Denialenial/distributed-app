@@ -13,7 +13,7 @@ const EventPage = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:5003/api/events');
+      const response = await axios.get('https://distributed-app-gamma.vercel.app/api/events');
       setEvents(response.data);
     } catch (error) {
       console.error('Error fetching events:', error);
@@ -23,7 +23,7 @@ const EventPage = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5003/api/events', newEvent);
+      const response = await axios.post('https://distributed-app-gamma.vercel.app/api/events', newEvent);
       setEvents([...events, response.data]);
       setNewEvent({ name: '', description: '', date: '', location: '', attendees: '' });
     } catch (error) {
@@ -33,7 +33,7 @@ const EventPage = () => {
 
   const handleRemove = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5003/api/events/${id}`, {
+      const response = await axios.delete(`https://distributed-app-gamma.vercel.app/api/events/${id}`, {
         validateStatus: function (status) {
           return status < 500; // Resolve only if the status code is less than 500
         }
@@ -57,7 +57,7 @@ const EventPage = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:5003/api/events/${editingEvent._id}`, editingEvent);
+      const response = await axios.put(`https://distributed-app-gamma.vercel.app/api/events/${editingEvent._id}`, editingEvent);
       setEvents(events.map(event => (event._id === editingEvent._id ? response.data : event)));
       setEditingEvent(null);
       console.log('Event updated:', response.data);
