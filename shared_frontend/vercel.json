@@ -1,17 +1,16 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "integrated-coding/package.json",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "integrated-coding/build" }
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "integrated-coding/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "integrated-coding/build" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
