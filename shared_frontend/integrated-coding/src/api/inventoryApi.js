@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/inventories';
+const API_URL = 'https://distributed-app-gamma.vercel.app/api/inventories';
 
 export const fetchInventories = async () => {
   const response = await axios.get(API_URL);
