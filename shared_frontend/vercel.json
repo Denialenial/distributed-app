@@ -2,9 +2,9 @@
     "version": 2,
     "builds": [
       {
-        "src": "shared_frontend/package.json",
+        "src": "integrated-coding/package.json",
         "use": "@vercel/static-build",
-        "config": { "distDir": "shared_frontend/build" }
+        "config": { "distDir": "integrated-coding/build" }
       }
     ],
     "routes": [
