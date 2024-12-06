@@ -1,6 +1,6 @@
 {
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } }
+    { "src": "integrated-coding/package.json", "use": "@vercel/static-build", "config": { "distDir": "integrated-coding/build" } }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/" }
