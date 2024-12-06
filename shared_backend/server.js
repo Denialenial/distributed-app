@@ -11,10 +11,7 @@ app.use(cors());
 app.use(express.json()); // For parsing application/json
 
 // Connect to MongoDB Atlas
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
   console.log('MongoDB connected to Atlas');
 }).catch((err) => {
   console.error('Error connecting to MongoDB:', err);
@@ -22,6 +19,10 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('Welcome to the API');
+});
+
 app.use('/api', combinedRoutes);
 
 // Error Handling Middleware
