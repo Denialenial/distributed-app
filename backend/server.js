@@ -7,7 +7,13 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://distributed-app-flame.vercel.app', // Update with your frontend URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json()); // For parsing application/json
 
 // Connect to MongoDB Atlas
