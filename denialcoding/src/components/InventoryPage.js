@@ -13,7 +13,7 @@ const InventoryPage = () => {
 
   const fetchInventories = async () => {
     try {
-      const response = await axios.get('https://distributed-app-gamma.vercel.app/api/inventories');
+      const response = await axios.get('https://distributed-app-flame.vercel.app/api/inventories');
       setInventories(response.data);
     } catch (error) {
       console.error('Error fetching inventories:', error);
@@ -23,7 +23,7 @@ const InventoryPage = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://distributed-app-gamma.vercel.app/api/inventories', newInventory);
+      const response = await axios.post('https://distributed-app-flame.vercel.app/api/inventories', newInventory);
       setInventories([...inventories, response.data]);
       setNewInventory({ name: '', quantity: '', price: '' });
     } catch (error) {
@@ -33,7 +33,7 @@ const InventoryPage = () => {
 
   const handleRemove = async (id) => {
     try {
-      const response = await axios.delete(`https://distributed-app-gamma.vercel.app/api/inventories/${id}`, {
+      const response = await axios.delete(`https://distributed-app-flame.vercel.app/api/inventories/${id}`, {
         validateStatus: function (status) {
           return status < 500; // Resolve only if the status code is less than 500
         }
@@ -57,7 +57,7 @@ const InventoryPage = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`https://distributed-app-gamma.vercel.app/api/inventories/${editingInventory._id}`, editingInventory);
+      const response = await axios.put(`https://distributed-app-flame.vercel.app/api/inventories/${editingInventory._id}`, editingInventory);
       setInventories(inventories.map(inventory => (inventory._id === editingInventory._id ? response.data : inventory)));
       setEditingInventory(null);
       console.log('Inventory updated:', response.data);
