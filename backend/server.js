@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to the API');
 });
 
-app.use('/api', combinedRoutes);
+app.use('/api', combinedRoutes); // Ensure this matches the prefix in your requests
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
