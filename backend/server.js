@@ -8,7 +8,7 @@ const app = express();
 
 // Middleware
 const corsOptions = {
-  origin: 'https://distributed-app-flame.vercel.app', // Update with your frontend URL
+  origin: '*', // Temporarily allow all origins
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 };
