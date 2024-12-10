@@ -14,6 +14,9 @@ const getInventories = async (req, res) => {
 const addInventory = async (req, res) => {
   try {
     const { name, quantity, price } = req.body;
+    if (!name || !quantity || !price) {
+      return res.status(400).send({ message: 'All fields are required' });
+    }
     const newInventory = new Inventory({ name, quantity, price });
     await newInventory.save();
     res.status(201).json(newInventory);
@@ -72,6 +75,9 @@ const getEmployees = async (req, res) => {
 const addEmployee = async (req, res) => {
   try {
     const { name, position, department, salary } = req.body;
+    if (!name || !position || !department || !salary) {
+      return res.status(400).send({ message: 'All fields are required' });
+    }
     const newEmployee = new Employee({ name, position, department, salary });
     await newEmployee.save();
     res.status(201).json(newEmployee);
@@ -130,6 +136,9 @@ const getEvents = async (req, res) => {
 const addEvent = async (req, res) => {
   try {
     const { name, description, date, location, attendees } = req.body;
+    if (!name || !description || !date || !location || !attendees) {
+      return res.status(400).send({ message: 'All fields are required' });
+    }
     const newEvent = new Event({ name, description, date, location, attendees });
     await newEvent.save();
     res.status(201).json(newEvent);

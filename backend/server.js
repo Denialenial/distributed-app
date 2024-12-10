@@ -1,5 +1,5 @@
 const express = require('express');
-const connectDB = require('./config/db'); // Adjust the path as needed
+const connectDB = require('./utils/dbConnection'); // Adjust the path as needed
 const combinedRoutes = require('./routes/combinedRoutes');
 const cors = require('cors');
 require('dotenv').config();
