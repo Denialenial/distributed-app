@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 
+// Inventory Schema
 const inventorySchema = new mongoose.Schema({
   name: { type: String, required: true },
   quantity: { type: Number, required: true },
   price: { type: Number, required: true }
 }, { timestamps: true });
 
+// Employee Schema
 const employeeSchema = new mongoose.Schema({
   name: { type: String, required: true },
   position: { type: String, required: true },
@@ -13,6 +15,7 @@ const employeeSchema = new mongoose.Schema({
   salary: { type: Number, required: true }
 }, { timestamps: true });
 
+// Event Schema
 const eventSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
