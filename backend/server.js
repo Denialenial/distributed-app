@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const connectDB = require('./config/db'); // Adjust the path as needed
 const combinedRoutes = require('./routes/combinedRoutes');
 const cors = require('cors');
 require('dotenv').config();
@@ -17,12 +17,7 @@ app.use(cors(corsOptions));
 app.use(express.json()); // For parsing application/json
 
 // Connect to MongoDB Atlas
-mongoose.connect(process.env.MONGO_URI).then(() => {
-  console.log('MongoDB connected to Atlas');
-}).catch((err) => {
-  console.error('Error connecting to MongoDB:', err);
-  process.exit(1); // Exit process on failure
-});
+connectDB();
 
 // Routes
 app.get('/', (req, res) => {
